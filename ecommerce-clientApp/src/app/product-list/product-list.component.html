@@ -1,0 +1,15 @@
+
+<h4>{{title}}</h4>
+<ul>
+    <li *ngFor="let product of productList">
+        {{product.name+" "+product.code+" "+product.price}}
+    </li>
+</ul>
+
+<div class="container d-flex">
+    <div *ngFor="let product of productList">
+        <product [inputProduct]="product"></product>
+    </div>
+
+</div>
+
