@@ -10,6 +10,7 @@ import { PRODUCTS } from 'src/Models/ProductList';
 export class ProductListComponent implements OnInit {
 
   productList: Product[];
+  selectedProduct: Product;
   title:string = "Product List";
 
   constructor() { 
@@ -18,6 +19,12 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.productList = PRODUCTS;
+  }
+
+  selectProductForProductList(product: Product){
+
+    this.selectedProduct = product;
+
   }
 
 }
