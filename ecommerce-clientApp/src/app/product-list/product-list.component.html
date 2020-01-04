@@ -1,12 +1,18 @@
 
 <h4>{{title}}</h4>
 
+<div>
+    <product-add (onAdded)="newProductAdded($event)"></product-add>
+</div>
+
 <div class="bg-info" *ngIf="selectedProduct">
 <p>Name: {{selectedProduct.name}}</p>
 <p>Code: {{selectedProduct.code}}</p>
 <p>Price: {{selectedProduct.price}}</p>
     
 </div>
+
+
 
 <div class="container d-flex">
     <div *ngFor="let product of productList">

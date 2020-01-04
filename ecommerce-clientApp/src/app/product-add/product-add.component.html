@@ -1,0 +1,12 @@
+
+<h2>Product Entry</h2>
+<form>
+<p>
+    Name: <input type="text" name="name" class="form-control" [(ngModel)]="product.name"/>
+</p>
+<p> Code: <input type="text" name="code" class="form-control" [(ngModel)]="product.code"/></p>
+<p> Price: <input type="text" name="price" class="form-control" [(ngModel)]="product.price"/></p>
+<p>
+    <input type="submit" (click)="save()" class="btn btn-primary" value="Save"/>
+</p>
+</form>
