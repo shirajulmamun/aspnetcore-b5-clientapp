@@ -10,7 +10,7 @@ import { ProductService } from '../Services/product.service';
 })
 export class ProductAddComponent implements OnInit {
 
-  product: Product = new Product();
+ // product: Product = new Product();
 
   @Output() onAdded: EventEmitter<Product> = new EventEmitter<Product>();
 
@@ -19,8 +19,9 @@ export class ProductAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(){
-    this.productService.add(this.product).subscribe(p=>{
+  save(product){
+    console.log('product submitted: '+JSON.stringify(product));
+    this.productService.add(product).subscribe(p=>{
       if(this.onAdded){
         this.onAdded.emit(p);
       }

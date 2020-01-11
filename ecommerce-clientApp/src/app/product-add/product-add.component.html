@@ -1,12 +1,24 @@
 
 <h2>Product Entry</h2>
-<form>
+<form #myForm="ngForm" (ngSubmit)="save(myForm.value)">
 <p>
-    Name: <input type="text" name="name" class="form-control" [(ngModel)]="product.name"/>
+    Name: <input type="text" name="name" class="form-control" required #inputName="ngModel" ngModel />
+    <span *ngIf="inputName.invalid && inputName.errors.required && inputName.touched" class="text-danger">
+        Name Required
+    </span>
 </p>
-<p> Code: <input type="text" name="code" class="form-control" [(ngModel)]="product.code"/></p>
-<p> Price: <input type="text" name="price" class="form-control" [(ngModel)]="product.price"/></p>
+<p> Code: <input type="text" name="code" class="form-control" ngModel/></p>
+<p> Price: <input type="text" name="price" class="form-control" ngModel/></p>
 <p>
-    <input type="submit" (click)="save()" class="btn btn-primary" value="Save"/>
+    <input type="submit" class="btn btn-primary" value="Save"/>
 </p>
 </form>
+
+
+
+Input Properties: {{inputName.valid | json}}
+
+
+Form is Valid : {{myForm.valid}}
+
+
