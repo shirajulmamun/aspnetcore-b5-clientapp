@@ -7,6 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './Services/product.service';
 import { ProductAddComponent } from './product-add/product-add.component';
+import {RouterModule} from '@angular/router'
 
 @NgModule(
   {
@@ -20,7 +21,21 @@ import { ProductAddComponent } from './product-add/product-add.component';
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      RouterModule.forRoot(
+        [
+          {path:'products', component:ProductListComponent , 
+            children:[
+              {path:'add', component:ProductAddComponent},
+              {path:'product', component:ProductComponent, }
+            ]
+        },    
+
+       {path:'', redirectTo:'products', pathMatch:'full'},
+        ]
+          
+
+      )
     ],
     providers: [ProductService],
     bootstrap: [AppComponent]
